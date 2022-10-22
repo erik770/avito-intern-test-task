@@ -1,11 +1,14 @@
 import React from 'react';
 import './App.css';
+import { Provider } from 'react-redux';
+import store from './redux/store';
+import NewsPage from './pages/NewsPage/NewsPage';
 
 function App() {
   return (
-    <div className="App">
-      <h1>hello</h1>
-    </div>
+    <Provider store ={store}>
+      <NewsPage />
+    </Provider>
   );
 }
 
