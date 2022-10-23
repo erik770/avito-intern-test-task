@@ -4,14 +4,16 @@ import { formatDate } from '../../utils/formatDate';
 import styles from "./NewsItem.module.scss";
 import starIcon from "../../img/star1.svg";
 import commentIcon from "../../img/comment.svg";
+import { Link } from 'react-router-dom';
 
 interface NewsItemProps {
     news: NewsType
 }
 
 const NewsItem: FC<NewsItemProps> = ({ news }) => {
+    // const navigate = useNavigate
     return (
-        <div className={styles["newsItem"]}>
+        <Link to={`/news/${news.id}`} className={styles["newsItem"]}>
             <div className={styles["newsItem__rating"]}>
                 {news.rating}
                 <img src={starIcon} alt="rating star icon"></img>
@@ -27,7 +29,7 @@ const NewsItem: FC<NewsItemProps> = ({ news }) => {
             </div>
 
 
-        </div>
+        </Link>
     );
 };
 

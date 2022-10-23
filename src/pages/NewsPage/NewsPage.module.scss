@@ -1,8 +1,9 @@
 .container {
     margin: auto;
+    margin-top: 60px;
     display: flex;
     flex-direction: column;
     max-width: 900px;
     padding: 40px;
-    background-color: white;
+    background-color: var(--news-container-background-color);
 }

@@ -1,3 +1,5 @@
+@import "./consts/consts.scss";
+
 *,
 *::before,
 *::after {
@@ -12,7 +14,7 @@ body {
   text-rendering: optimizeSpeed;
   line-height: 1.5;
 
-  background-color: azure;
+  background-color: var(--background-color);
 }
 
 img {

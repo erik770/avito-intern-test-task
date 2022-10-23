@@ -1,0 +1,12 @@
+.button {
+    border: none;
+    background-color: var(--buttons-background-color);
+    border-radius: 5px;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    
+    img {
+        height: 30px;
+    }
+}

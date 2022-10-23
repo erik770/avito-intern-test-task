@@ -3,11 +3,13 @@
     flex-direction: row;
     padding: 5px 25px 15px;
     margin: 10px 0px;
-    background-color: rgb(244, 244, 244);
+    background-color: var(--news-background-color);
     border-radius: 15px;
     align-items: center;
     gap: 20px;
     cursor: pointer;
+    color: var(--news-title-text-color);;
+    text-decoration: none;
 
     &__rating {
         display: flex;
@@ -25,18 +27,18 @@
 }
 
 .info {
-    color: rgb(109, 109, 109);
+    color: var(--news-info-text-color);
     &__author {
-        color:rgb(49, 49, 49);
+        color: var(--news-author-text-color);
     }
     &__title {
         font-size: 1.5rem;
-        color:black;
+        color: var(--news-title-text-color);
     }
     &__comments {
         display: flex;
         align-items: center;
-        color:rgb(49, 49, 49);
+        color: var(--news-comments-text-color);
         gap: 5px;
         
         img {
