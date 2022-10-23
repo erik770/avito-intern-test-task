@@ -4,5 +4,5 @@ export type NewsType = {
     rating: number
     author: string
     date: number
-    type: string
+    comments: number
 }

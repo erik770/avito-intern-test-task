@@ -1,4 +1,4 @@
-import { GET_NEWS, GET_PART_NEWS, WAITING_NEWS } from '../actions/GetNewsActions';
+import { CLEAR_NEWS, GET_NEWS, GET_PART_NEWS, WAITING_NEWS } from '../actions/GetNewsActions';
 import { NewsType } from '../../types';
 
 
@@ -17,7 +17,7 @@ const GetNewsReducer = (state: INewsState = initialState, action: any): INewsSta
         case GET_NEWS:
             return {
                 ...state,
-                news:  [...state.news, ...action.news],
+                news: [...state.news, ...action.news],
                 isFetching: false,
             }
         case GET_PART_NEWS:
@@ -30,6 +30,11 @@ const GetNewsReducer = (state: INewsState = initialState, action: any): INewsSta
             return {
                 ...state,
                 isFetching: true,
+            }
+        case CLEAR_NEWS:
+            return {
+                ...state,
+                news: action.news,
             }
         default:
             return state

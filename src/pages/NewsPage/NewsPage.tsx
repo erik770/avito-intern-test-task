@@ -1,8 +1,10 @@
 import { Action, ThunkDispatch } from '@reduxjs/toolkit';
 import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import NewsItem from '../../components/NewsItem/NewsItem';
 import { AppStateType } from '../../redux/store';
 import { getAllNewsThunk } from '../../redux/thunks/getAllNewsThunk';
+import styles from "./NewsPage.module.scss"
 
 const NewsPage = () => {
     const state = useSelector((state: AppStateType) => state.News);
@@ -12,20 +14,16 @@ const NewsPage = () => {
     const news = state.news;
 
     useEffect(() => {
-        const update = setInterval(() =>  dispatch(getAllNewsThunk()), 60000);
+        dispatch(getAllNewsThunk());
+        const update = setInterval(() =>  dispatch(getAllNewsThunk(true)), 60000);
         return () => clearInterval(update);
     }, [dispatch]);
     
-    useEffect(() => {
-        if (!news.length) {
-            dispatch(getAllNewsThunk());
-        }
-        // dispatch(clearNewsItemAction());
-    }, [news, dispatch]);
+  
 
     return (
-        <div>
-          {news.map(el => <div>{el.author}</div>)}
+        <div className={styles["container"]}>
+          {state.news.map(el => <NewsItem news={el}></NewsItem>)}
           {state.isFetching && <h1> Loading ...</h1>}
         </div>
     );
