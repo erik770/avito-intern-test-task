@@ -1,7 +1,7 @@
 import { NewsType } from '../../types';
 import { GetLatestNewsIds, GetNewsById } from '../../API/getLatestNews';
-import { clearNewsAction, getNewsAction, getPartOfNewsAction, waitingNewsAction } from '../actions/GetNewsActions';
-import { NUM_OF_NEWS_ON_MAIN_PAGE, PORTION_OF_NEWS_SIZE } from '../../consts/consts';
+import { clearNewsAction, getNewsAction, getPartOfNewsAction, waitingNewsAction } from '../actions/NewsActions';
+import { emptyNews, NUM_OF_NEWS_ON_MAIN_PAGE, PORTION_OF_NEWS_SIZE } from '../../consts/consts';
 
 
 let newsArray: NewsType[] = [];
@@ -22,18 +22,12 @@ export const getAllNewsThunk = (fullUpdate: boolean = false) => (async (dispatch
                 title: responce.title,
                 rating: responce.score,
                 author: responce.by,
+                url: responce.url,
                 date: responce.time,
-                comments: numOfComments,
+                comments: responce.kids,
             }
         }).catch((error) => {
-            return {
-                id: 0,
-                title: '',
-                rating: 0,
-                author: '',
-                date: 0,
-                comments: 0
-            }
+            return emptyNews;
         })
         if (newsItem.id !== 0) {
             newsArray.push(newsItem);

@@ -1,24 +1,25 @@
 .newsItem {
     display: flex;
     flex-direction: row;
-    padding: 5px 25px 15px;
+    padding: 15px 25px;
     margin: 10px 0px;
     background-color: var(--news-background-color);
     border-radius: 15px;
     align-items: center;
     gap: 20px;
     cursor: pointer;
-    color: var(--news-title-text-color);;
+    color: var(--news-title-text-color);
+
     text-decoration: none;
 
-    &__rating {
+    &__sidebar {
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
-
+        height: 100%;
         font-size: 1.5rem;
-        
+
         img {
             width: 20px;
             height: 20px;
@@ -28,22 +29,45 @@
 
 .info {
     color: var(--news-info-text-color);
-    &__author {
-        color: var(--news-author-text-color);
-    }
+
+
     &__title {
+        margin-top: 5px;
         font-size: 1.5rem;
         color: var(--news-title-text-color);
     }
+
+    &__date {
+        color: var(--news-info-date-color);
+    }
+
+    &__url {
+        font-size: 1.125rem;
+        a {
+            color: var(--news-link-color);
+            pointer-events: all;
+        }
+    }
+
     &__comments {
         display: flex;
         align-items: center;
-        color: var(--news-comments-text-color);
         gap: 5px;
-        
+
         img {
-            width: 15px;
-            height: 15px;
+            width: 18px;
+            height: 18px;
         }
     }
+}
+
+.link-disabled {
+    pointer-events: none;
+}
+
+.sidebarPlug {
+    width: 20px;
+    height: 125px;
+    border-radius: 5px;
+    background-color: var(--buttons-background-color);
 }

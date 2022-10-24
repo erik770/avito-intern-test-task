@@ -23,7 +23,7 @@ const NewsPage: FC = () => {
 
     return (
         <div className={styles["container"]}>
-          {state.news.map(el => <NewsItem key={el.id} news={el}></NewsItem>)}
+          {state.news.map(el => <NewsItem key={el.id} news={el} isSelected={false}></NewsItem>)}
           {state.isFetching && <h1> Loading ...</h1>}
         </div>
     );

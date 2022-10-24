@@ -1,0 +1,17 @@
+.container {
+    margin: auto;
+    margin-top: 60px;
+    display: flex;
+    flex-direction: column;
+    max-width: 900px;
+    padding: 40px;
+    min-height: calc(100vh - 60px);
+    background-color: var(--news-container-background-color);
+}
+
+.comments {
+    &__title {
+        text-align: center;
+        font-size: 1.3rem;   
+    }
+}
