@@ -2,11 +2,12 @@ import { combineReducers, createStore, applyMiddleware } from "redux";
 import NewsReducer from './reducers/NewsReducer';
 import thunk from 'redux-thunk';
 import CurrentNewsReducer from "./reducers/CurrentNewsReducer";
+import CommentsReducer from "./reducers/CommentsReducer";
 
 const rootReducer = combineReducers({
     News: NewsReducer,
     CurrentNews: CurrentNewsReducer,
-    // RootComments: GetRootCommentsReducer,
+    Comments: CommentsReducer,
     // SubCommnets: GetSubCommentReducer
 })
 

@@ -12,7 +12,6 @@ function App() {
   return (
     <Provider store={store}>
       <BrowserRouter>
-        <Header />
         <AppRouter ROUTES={ROUTES} />
       </BrowserRouter>
     </Provider>

@@ -26,7 +26,6 @@ const NewsItem: FC<NewsItemProps> = ({ news, isSelected }) => {
                     ? <> {news.rating} <img src={starIcon} alt="rating star icon" /> </>
                     : <div className={styles["sidebarPlug"]}></div>
                 }
-
             </div>
 
             <div className={[styles["newsItem__info"], styles["info"]].join(" ")}>

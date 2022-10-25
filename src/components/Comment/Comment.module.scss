@@ -1,0 +1,34 @@
+.comment {
+    padding: 15px 25px;
+    margin: 10px 0px;
+    background-color: var(--news-background-color);
+    border-radius: 15px;
+
+    &__author {
+        font-size: 1rem;
+        text-align: center;
+        display: inline-block;
+        min-width: 125px;
+        color: white;
+        background-color: var(--buttons-background-color);
+        border-radius: 5px;
+        padding: 0px 5px;
+        margin-bottom: 15px;
+    }
+
+    &__text {
+        font-size: 1.125rem;
+
+        a {
+            color: var(--news-link-color);
+        }
+    }
+
+    &__repliesLink {
+        display: inline-block;
+        margin-top: 10px;
+        cursor: pointer;
+        text-decoration: underline;
+        color: var(--news-info-text-color);
+    }
+}

@@ -1,7 +1,8 @@
-import { GetNewsById } from "../../API/getLatestNews";
+import { GetNewsById } from "../../API/fetchNews";
 import { emptyNews } from "../../consts/consts";
 import { NewsType } from "../../types";
 import { getCurrentNewsAction, waitingCurrentNewsAction } from "../actions/CurrentNewsActions";
+import { getRootCommentsThunk } from "./getCommentsThunk";
 
 export const getCurrentNewsThunk = (id: number) => (async (dispatch: any) => {
     dispatch(waitingCurrentNewsAction());
@@ -21,4 +22,5 @@ export const getCurrentNewsThunk = (id: number) => (async (dispatch: any) => {
     })
 
     dispatch(getCurrentNewsAction(currentNews));
+    dispatch(getRootCommentsThunk(currentNews.comments));
 });

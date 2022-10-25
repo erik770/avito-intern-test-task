@@ -4,14 +4,24 @@
     display: flex;
     flex-direction: column;
     max-width: 900px;
-    padding: 40px;
+    padding: 40px 40px 15px;
     min-height: calc(100vh - 60px);
     background-color: var(--news-container-background-color);
 }
 
 .comments {
     &__title {
-        text-align: center;
-        font-size: 1.3rem;   
+        margin-left: 20px;
+        font-size: 1.3rem;
+        color: var(--comments-title-text-color);
+        cursor: default;
+
+        span {
+            color: #04840d;
+        }
+    }
+
+    &__items {
+
     }
 }

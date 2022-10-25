@@ -14,3 +14,10 @@ export type RouteType = {
     path: string,
     component: FC,
 }
+
+export type CommentType = {
+    id: number,
+    author: string,
+    text: string,
+    subComments: number[],
+}
