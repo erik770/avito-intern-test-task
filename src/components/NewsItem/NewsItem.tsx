@@ -1,5 +1,5 @@
 import React, { FC } from "react";
-import { Link } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import { NewsType } from "../../types";
 import { formatDate } from "../../utils/formatDate";
 import styles from "./NewsItem.module.scss";
@@ -17,8 +17,13 @@ export const NewsItem: FC<NewsItemProps> = function ({ news, isSelected }) {
 
   const classesArr = [styles.newsItem, isSelected && styles["link-disabled"]];
 
+  const history = useHistory();
+  const openSingleNewsPage = () => {
+    history.push(`/news/${news.id}`);
+  };
+
   return (
-    <Link to={`/news/${news.id}`} className={classesArr.join(" ")}>
+    <div onClick={openSingleNewsPage} className={classesArr.join(" ")}>
       <div className={styles.newsItem__sidebar}>
         {!isSelected
           ? <>{news.rating} <img src={starIcon} alt="rating star icon" /></>
@@ -47,6 +52,6 @@ export const NewsItem: FC<NewsItemProps> = function ({ news, isSelected }) {
             </div>
           )}
       </div>
-    </Link>
+    </div>
   );
 };
