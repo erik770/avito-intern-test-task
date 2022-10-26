@@ -1,14 +1,12 @@
-import React from 'react';
-import './App.scss';
-import { Provider } from 'react-redux';
-import store from './redux/store';
-import NewsPage from './pages/NewsPage/NewsPage';
-import Header from './components/Header/Header';
-import { BrowserRouter } from 'react-router-dom';
-import AppRouter from './components/AppRouter';
-import { ROUTES } from './consts/routes';
+import React from "react";
+import "./App.scss";
+import { Provider } from "react-redux";
+import { BrowserRouter } from "react-router-dom";
+import { store } from "./redux/store";
+import { AppRouter } from "./components/AppRouter";
+import { ROUTES } from "./consts/routes";
 
-function App() {
+export const App = function () {
   return (
     <Provider store={store}>
       <BrowserRouter>
@@ -16,6 +14,4 @@ function App() {
       </BrowserRouter>
     </Provider>
   );
-}
-
-export default App;
+};
