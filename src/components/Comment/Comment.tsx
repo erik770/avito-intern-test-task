@@ -38,9 +38,13 @@ export const Comment: FC<CommentProps> = function ({ comment }) {
         {ReactHtmlParser(comment.text)}
       </div>
       {!comment.subComments.length
-        || <button type="button" onClick={showSubComments} className={styles.comment__repliesLink}>Show replies</button>}
-      {isSubCommentsVisible && currentSubComments?.map((el) => <Comment key={el.id} comment={el} />)}
-      {/* */}
+        || (
+          <button type="button" onClick={showSubComments} className={styles.comment__repliesLink}>
+            Show replies
+          </button>
+        )}
+      {isSubCommentsVisible
+        && currentSubComments?.map((el) => <Comment key={el.id} comment={el} />)}
     </div>
   );
 };

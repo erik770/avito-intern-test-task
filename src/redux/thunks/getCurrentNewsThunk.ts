@@ -1,4 +1,4 @@
-import { GetNewsById } from "../../API/fetchNews";
+import { FetchNewsById } from "../../API/fetchNews";
 import { emptyNews } from "../../consts/consts";
 import { NewsType } from "../../types";
 import { getCurrentNewsAction, waitingCurrentNewsAction } from "../actions/CurrentNewsActions";
@@ -9,7 +9,7 @@ export const getCurrentNewsThunk = (id: number) => (async (dispatch: any) => {
 
   let currentNews: NewsType = emptyNews;
 
-  currentNews = await GetNewsById(id).then((responce) => ({
+  currentNews = await FetchNewsById(id).then((responce) => ({
     id: responce.id,
     title: responce.title,
     rating: responce.score,

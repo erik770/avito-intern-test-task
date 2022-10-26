@@ -25,11 +25,6 @@ export const CurrentNewsReducer = (state = initialState, action: any): ICurrentN
         ...state,
         isFetching: true,
       };
-      // case CLEAR_CURRENT_NEWS:
-      //     return {
-      //         ...state,
-      //         currentNews: emptyNews,
-      //     }
     default:
       return state;
   }

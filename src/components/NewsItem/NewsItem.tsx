@@ -19,41 +19,26 @@ export const NewsItem: FC<NewsItemProps> = function ({ news, isSelected }) {
 
   return (
     <Link to={`/news/${news.id}`} className={classesArr.join(" ")}>
-
       <div className={styles.newsItem__sidebar}>
         {!isSelected
-          ? (
-            <>
-              {" "}
-              {news.rating}
-              {" "}
-              <img src={starIcon} alt="rating star icon" />
-              {" "}
-            </>
-          )
+          ? <>{news.rating} <img src={starIcon} alt="rating star icon" /></>
           : <div className={styles.sidebarPlug} />}
       </div>
 
       <div className={[styles.newsItem__info, styles.info].join(" ")}>
         <p className={styles.info__title}>{news.title}</p>
-        {isSelected
+        {isSelected && news.url
           && (
             <div className={styles.info__url}>
-              Link:
-              {" "}
-              {news.url ? <a href={news.url}>{news.url}</a> : "oops, no link provided"}
+              Link: <a href={news.url}>{news.url}</a>
             </div>
           )}
         <span className={styles.info__author}>
           <strong>
-            Posted by
-            {news.author}
+            Posted by {news.author}
           </strong>
         </span>
-        <span className={styles.info__date}>
-          &#8226;
-          {`${formatDate(news.date)} ago `}
-        </span>
+        <span className={styles.info__date}> &#8226; {formatDate(news.date)} ago</span>
         {!isSelected
           && (
             <div className={styles.info__comments}>
@@ -61,7 +46,6 @@ export const NewsItem: FC<NewsItemProps> = function ({ news, isSelected }) {
               {numOfComments ? commentsString : "No comments yet"}
             </div>
           )}
-
       </div>
     </Link>
   );

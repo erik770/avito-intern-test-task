@@ -1,4 +1,4 @@
-import { GetComment } from "../../API/fetchComments";
+import { FetchComment } from "../../API/fetchComment";
 import { emptyComment } from "../../consts/consts";
 import { CommentType } from "../../types";
 import { getCommentsAction, waitingCommentsAction } from "../actions/CommentsActions";
@@ -11,7 +11,7 @@ export const getRootCommentsThunk = (commentsIds: Array<number> = []) => (async 
   let singleComment: CommentType | Promise<CommentType> = emptyComment;
 
   for (let i = 0; i < commentsIds.length; ++i) {
-    singleComment = GetComment(commentsIds[i]).then((responce) => ({
+    singleComment = FetchComment(commentsIds[i]).then((responce) => ({
       id: responce.id,
       author: responce.by,
       text: responce.text,
@@ -21,7 +21,10 @@ export const getRootCommentsThunk = (commentsIds: Array<number> = []) => (async 
 
     fetchedComments.push(singleComment);
   }
-  
-  const resultComments = (await Promise.all<CommentType>(fetchedComments)).filter(el => !el.deleted);
+
+  const resultComments = (await Promise
+    .all<CommentType>(fetchedComments))
+    .filter((el) => !el.deleted);
+
   dispatch(getCommentsAction(resultComments));
 });

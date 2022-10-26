@@ -24,17 +24,6 @@ export const CommentsReducer = (state = initialState, action: any): ICommentsSta
         ...state,
         isFetching: true,
       };
-      // case SET_ROOT_COMMENTS_ENDED:
-      //     return {
-      //         ...state,
-      //         isLastComment: true,
-      //     }
-      // case CLEAR_ROOT_COMMENTS:
-      //     return {
-      //         ...state,
-      //         comments: [],
-      //         isLastComment: false,
-      //     }
     default:
       return state;
   }

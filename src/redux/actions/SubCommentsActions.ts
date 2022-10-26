@@ -1,5 +1,3 @@
-// import { SubCommentType } from "../../types/types";
-
 import { CommentType } from "../../types";
 
 export const GET_SUB_COMMENTS = "GET_SUB_COMMENTS";

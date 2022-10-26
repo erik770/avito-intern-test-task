@@ -27,7 +27,8 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "lint": "npx eslint src/*",
+    "lint": "yarn eslint . --ext .ts,.tsx",
+    "fixLint": "yarn eslint . --ext .ts,.tsx --fix",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"

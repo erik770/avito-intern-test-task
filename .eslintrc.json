@@ -37,6 +37,14 @@
             {
                 "allowForLoopAfterthoughts": true
             }
-        ]
+        ],
+        "react-hooks/exhaustive-deps": "off",
+        "@typescript-eslint/no-unused-expressions": [
+            "error",
+            {
+                "allowShortCircuit": true
+            }
+        ],
+        "react/jsx-one-expression-per-line": "off"
     }
 }

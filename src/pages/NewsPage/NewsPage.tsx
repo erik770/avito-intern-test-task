@@ -15,7 +15,7 @@ export const NewsPage: FC = function () {
   const update = () => dispatch(getAllNewsThunk());
 
   useEffect(() => {
-    newsState.news.length === 0 && update();
+    !newsState.news.length && update();
     const updateInterval = setInterval(() => update(), NEWS_UPDATE_INTERVAL);
     return () => clearInterval(updateInterval);
   }, []);

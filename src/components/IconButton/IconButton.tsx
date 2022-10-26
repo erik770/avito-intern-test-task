@@ -6,6 +6,7 @@ interface IconButtonProps {
   alt: string,
   onClick: () => void,
 }
+
 export const IconButton: FC<IconButtonProps> = function ({ icon, alt, onClick }) {
   return (
     <button type="button" onClick={onClick} className={styles.button}>

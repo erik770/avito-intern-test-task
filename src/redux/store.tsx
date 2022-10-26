@@ -3,7 +3,7 @@ import thunk from "redux-thunk";
 import { NewsReducer } from "./reducers/NewsReducer";
 import { CurrentNewsReducer } from "./reducers/CurrentNewsReducer";
 import { CommentsReducer } from "./reducers/CommentsReducer";
-import SubCommentsReducer from "./reducers/SubCommnetsReducer";
+import { SubCommentsReducer } from "./reducers/SubCommnetsReducer";
 
 const rootReducer = combineReducers({
   News: NewsReducer,

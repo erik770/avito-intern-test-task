@@ -2,7 +2,6 @@ import React, { FC, useEffect } from "react";
 import { Action, ThunkDispatch } from "@reduxjs/toolkit";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
-import { isConstructorDeclaration } from "typescript";
 import { NewsItem } from "../../components/NewsItem/NewsItem";
 import { AppStateType } from "../../redux/store";
 import styles from "./SingleNewsPage.module.scss";
@@ -29,6 +28,7 @@ export const SingleNewsPage: FC = function () {
 
   const currentNewsIsEmpty = currentNewsState.currentNews === emptyNews;
   const loadingCurrentNews = currentNewsState.isFetching && currentNewsIsEmpty;
+  const numOfComments = currentNewsState.currentNews.comments?.length;
 
   useEffect(() => {
     if (news.length !== 0) {
@@ -40,7 +40,6 @@ export const SingleNewsPage: FC = function () {
     }
   }, []);
 
-  const numOfComments = currentNewsState.currentNews.comments?.length;
   return (
     <>
       <Header showGoBackButton refreshHandler={upadateComments} />
@@ -50,30 +49,14 @@ export const SingleNewsPage: FC = function () {
           && <NewsItem news={currentNewsState.currentNews} isSelected />}
         <div className={styles.comments}>
           {numOfComments
-            ? (
-              <h3 className={styles.comments__title}>
-                Comments
-                <span>
-                  (
-                  {numOfComments}
-                  )
-                </span>
-                :
-                {" "}
-              </h3>
-            )
-            : (
-              <h3 className={styles.comments__title}>
-                No comments
-                <span>yet</span>
-              </h3>
-            )}
+            ? <h3 className={styles.comments__title}>Comments <span>({numOfComments})</span>:</h3>
+            : <h3 className={styles.comments__title}>No comments <span>yet</span></h3>}
           <div className={styles.comments__items}>
-            {numOfComments
-              ? commentsState.isFetching
+            {!!numOfComments
+              && (commentsState.isFetching
                 ? <h3>Loading...</h3>
                 : commentsState.comments.map((el) => <Comment key={el.id} comment={el} />)
-              : <></>}
+              )}
           </div>
         </div>
       </div>
