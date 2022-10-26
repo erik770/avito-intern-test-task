@@ -8,6 +8,7 @@ export type NewsType = {
   author: string,
   date: number,
   comments: number[],
+  commentsCounter: number,
 };
 
 export type RouteType = {

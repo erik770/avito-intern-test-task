@@ -12,7 +12,7 @@ interface NewsItemProps {
 }
 
 export const NewsItem: FC<NewsItemProps> = function ({ news, isSelected }) {
-  const numOfComments = news.comments?.length;
+  const numOfComments = news.commentsCounter;
   const commentsString = numOfComments === 1 ? `${numOfComments} comment` : `${numOfComments} comments`;
 
   const classesArr = [styles.newsItem, isSelected && styles["link-disabled"]];

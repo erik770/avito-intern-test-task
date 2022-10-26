@@ -28,7 +28,7 @@ export const SingleNewsPage: FC = function () {
 
   const currentNewsIsEmpty = currentNewsState.currentNews === emptyNews;
   const loadingCurrentNews = currentNewsState.isFetching && currentNewsIsEmpty;
-  const numOfComments = currentNewsState.currentNews.comments?.length;
+  const numOfComments = currentNewsState.currentNews.commentsCounter;
 
   useEffect(() => {
     if (news.length !== 0) {

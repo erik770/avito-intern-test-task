@@ -16,7 +16,8 @@ export const getCurrentNewsThunk = (id: number) => (async (dispatch: any) => {
     author: responce.by,
     url: responce.url,
     date: responce.time,
-    comments: responce.kids,
+    comments: responce.kids ?? [],
+    commentsCounter: responce.descendants ?? 0,
   }));
 
   dispatch(getCurrentNewsAction(currentNews));

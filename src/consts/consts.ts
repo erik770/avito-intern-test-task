@@ -1,6 +1,6 @@
 import { CommentType, NewsType } from "../types";
 
-export const NUM_OF_NEWS_ON_MAIN_PAGE = 25;
+export const NUM_OF_NEWS_ON_MAIN_PAGE = 100;
 export const PORTION_OF_NEWS_SIZE = 5;
 const NEWS_UPDATE_INTERVAL_SEC = 60;
 export const NEWS_UPDATE_INTERVAL = NEWS_UPDATE_INTERVAL_SEC * 1000;
@@ -13,6 +13,7 @@ export const emptyNews: NewsType = {
   url: "github.com/erik770",
   date: Number(new Date()),
   comments: [],
+  commentsCounter: 0,
 };
 
 export const emptyComment: CommentType = {

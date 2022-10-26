@@ -24,7 +24,8 @@ export const getAllNewsThunk = () => (async (dispatch: any) => {
       author: responce.by,
       url: responce.url,
       date: responce.time,
-      comments: responce.kids ? responce.kids : [],
+      comments: responce.kids ?? [],
+      commentsCounter: responce.descendants ?? 0,
     })).catch(() => emptyNews);
 
     fetchedNews.push(newsItem);
