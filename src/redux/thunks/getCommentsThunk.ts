@@ -5,9 +5,9 @@ import { getCommentsAction, waitingCommentsAction } from "../actions/CommentsAct
 
 
 export const getRootCommentsThunk = (commentsIds: Array<number> = []) => (async (dispatch: any) => {
-    const comments: Array<CommentType> = [];
+    const comments: CommentType[] = [];
+    dispatch(getCommentsAction([]));
     dispatch(waitingCommentsAction());
-    !commentsIds.length && dispatch(getCommentsAction([]));
 
     let singleComment: CommentType = emptyComment;
 

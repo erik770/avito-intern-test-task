@@ -32,8 +32,8 @@ const NewsItem: FC<NewsItemProps> = ({ news, isSelected }) => {
                 <p className={styles["info__title"]}>{news.title}</p>
                 {isSelected &&
                     <div className={styles["info__url"]}>
-                        Link:  {news.url ? <a href={news.url} >{news.url}</a> : "oops, no link provided"}
-                    </div>
+                        Link:  {news.url ? <a href={news.url} >{news.url}</a> : "oops, no link provided"} 
+                    </div>// div
                 }
                 <span className={styles["info__author"]}><strong>Posted by {news.author} </strong></span>
                 <span className={styles["info__date"]}>&#8226; {formatDate(news.date) + " ago "}</span>

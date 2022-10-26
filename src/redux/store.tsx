@@ -3,12 +3,13 @@ import NewsReducer from './reducers/NewsReducer';
 import thunk from 'redux-thunk';
 import CurrentNewsReducer from "./reducers/CurrentNewsReducer";
 import CommentsReducer from "./reducers/CommentsReducer";
+import SubCommentsReducer from "./reducers/SubCommnetsReducer";
 
 const rootReducer = combineReducers({
     News: NewsReducer,
     CurrentNews: CurrentNewsReducer,
     Comments: CommentsReducer,
-    // SubCommnets: GetSubCommentReducer
+    SubCommnets: SubCommentsReducer,
 })
 
 type RootReducerType = typeof rootReducer;

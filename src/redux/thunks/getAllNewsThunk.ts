@@ -9,7 +9,7 @@ export const getAllNewsThunk = (fullUpdate: boolean = false) => (async (dispatch
     let newsArray: NewsType[] = [];
     let latestNewsId: number[] = [];
     dispatch(waitingNewsAction());
-    dispatch(clearNewsAction([]));
+    dispatch(clearNewsAction());
 
     latestNewsId = await GetLatestNewsIds();
     for (let i = 0; i < NUM_OF_NEWS_ON_MAIN_PAGE; i++) {

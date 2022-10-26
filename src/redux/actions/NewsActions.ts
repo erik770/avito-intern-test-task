@@ -20,13 +20,14 @@ export const getPartOfNewsAction = (news: NewsType[]) => (
     }
 );
 
-export const clearNewsAction = (news: NewsType[]) => (
+export const clearNewsAction = () => (
     { 
         type: CLEAR_NEWS,
-        news: news,
     }
 );
 
 export const waitingNewsAction = () => (
-    { type: WAITING_NEWS }
+    { 
+        type: WAITING_NEWS
+    }
 );

@@ -34,7 +34,7 @@ const NewsReducer = (state: INewsState = initialState, action: any): INewsState 
         case CLEAR_NEWS:
             return {
                 ...state,
-                news: action.news,
+                news: [],
             }
         default:
             return state

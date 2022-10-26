@@ -3,12 +3,11 @@ body {
     --news-container-background-color: white;
     --header-background-color: rgb(198, 255, 212);
     --buttons-background-color: #6B7D7D;
-    --news-background-color: rgb(244, 244, 244);
+    --news-background-color: rgba(0, 0, 0, 0.027);
+    --comments-background-color:  var(--news-background-color);
 
     --news-title-text-color: black;
     --news-link-color: black;
-    // --news-author-text-color: rgb(49, 49, 49);
-    // --news-comments-text-color:;
     --comments-title-text-color: #283D3B;
     --news-info-text-color: rgb(49, 49, 49);
     --news-info-date-color: rgb(109, 109, 109);
