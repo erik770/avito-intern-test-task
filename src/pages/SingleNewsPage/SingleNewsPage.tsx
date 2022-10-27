@@ -12,6 +12,7 @@ import { getRootCommentsThunk } from "../../redux/thunks/getCommentsThunk";
 import { Comment } from "../../components/Comment/Comment";
 import { Header } from "../../components/Header/Header";
 import { clearSubCommentsAction } from "../../redux/actions/SubCommentsActions";
+import { Loader } from "../../components/Loader/Loader";
 
 export const SingleNewsPage: FC = function () {
   const { id } = useParams<{ id: string }>();
@@ -44,7 +45,7 @@ export const SingleNewsPage: FC = function () {
     <>
       <Header showGoBackButton refreshHandler={upadateComments} />
       <div className={styles.container}>
-        {loadingCurrentNews && <h3>Loading...</h3>}
+        {loadingCurrentNews && <Loader />}
         {!loadingCurrentNews && !currentNewsIsEmpty
           && <NewsItem news={currentNewsState.currentNews} isSelected />}
         <div className={styles.comments}>
@@ -54,7 +55,7 @@ export const SingleNewsPage: FC = function () {
           <div className={styles.comments__items}>
             {!!numOfComments
               && (commentsState.isFetching
-                ? <h3>Loading...</h3>
+                ? <Loader />
                 : commentsState.comments.map((el) => <Comment key={el.id} comment={el} />)
               )}
           </div>

@@ -17,7 +17,7 @@
         cursor: default;
 
         span {
-            color: #04840d;
+            color: var(--comments-counter-text-color);
         }
     }
 }

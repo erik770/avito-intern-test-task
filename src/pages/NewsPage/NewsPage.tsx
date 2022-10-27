@@ -2,6 +2,7 @@ import { Action, ThunkDispatch } from "@reduxjs/toolkit";
 import React, { FC, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Header } from "../../components/Header/Header";
+import { Loader } from "../../components/Loader/Loader";
 import { NewsItem } from "../../components/NewsItem/NewsItem";
 import { NEWS_UPDATE_INTERVAL } from "../../consts/consts";
 import { AppStateType } from "../../redux/store";
@@ -25,7 +26,7 @@ export const NewsPage: FC = function () {
       <Header showGoBackButton={false} refreshHandler={update} />
       <div className={styles.container}>
         {newsState.news.map((el) => <NewsItem key={el.id} news={el} isSelected={false} />)}
-        {newsState.isFetching && <h1> Loading ...</h1>}
+        {newsState.isFetching && <Loader />}
       </div>
     </>
   );

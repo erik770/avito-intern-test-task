@@ -6,6 +6,7 @@ import { CommentType } from "../../types";
 import styles from "./Comment.module.scss";
 import { AppStateType } from "../../redux/store";
 import { getSubCommentsThunk } from "../../redux/thunks/getSubCommentsThunk";
+import { Loader } from "../Loader/Loader";
 
 interface CommentProps {
   comment: CommentType,
@@ -43,8 +44,9 @@ export const Comment: FC<CommentProps> = function ({ comment }) {
             Show replies
           </button>
         )}
-      {isSubCommentsVisible
-        && currentSubComments?.map((el) => <Comment key={el.id} comment={el} />)}
+      {isSubCommentsVisible && (currentSubComments
+        ? currentSubComments.map((el) => <Comment key={el.id} comment={el} />)
+        : <Loader />)}
     </div>
   );
 };
