@@ -11,6 +11,12 @@
     color: var(--news-title-text-color);
     text-decoration: none;
 
+    &:hover {
+        .info__title {
+            text-decoration: underline;
+        }
+    }
+
     &__sidebar {
         display: flex;
         flex-direction: column;
@@ -62,6 +68,10 @@
 
 .link-disabled {
     pointer-events: none;
+
+    &:hover .info__title {
+        text-decoration: none;
+    }
 }
 
 .sidebarPlug {
