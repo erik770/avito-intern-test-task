@@ -6,5 +6,4 @@ export const ROUTES: RouteType[] = [
   { path: "/news/:id", component: SingleNewsPage },
   { path: "/news", component: NewsPage },
   { path: "/", component: NewsPage },
-  // { path: '/*', component: NewsPage }
 ];
